@@ -1,0 +1,9 @@
+micronaut:
+  application:
+    name: micronautHello
+  server:
+    port: 9091
+netty:
+  default:
+    allocator:
+      max-order: 3

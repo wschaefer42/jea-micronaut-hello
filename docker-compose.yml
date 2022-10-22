@@ -1,0 +1,6 @@
+services:
+  micronaut-hello-service:
+    build: .
+    image: wschaefer42/micronaut-hello-service
+    ports:
+      - "9091:9091"

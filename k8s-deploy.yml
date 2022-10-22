@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-deployment
+  labels:
+    app: hello
+spec:
+  replicas: 1
+  template:
+    metadata:
+      name: hello-service
+      labels:
+        app: hello
+    spec:
+      containers:
+        - name: hello-service
+          image: wschaefer42/micronaut-hello-service
+          imagePullPolicy: IfNotPresent
+      restartPolicy: Always
+  selector:
+    matchLabels:
+      app: hello
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-service
+spec:
+  selector:
+    app: hello
+  ports:
+    - port: 9091
+  type: NodePort
